@@ -1,0 +1,55 @@
+{% extends 'admin_base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="container mx-auto my-3" >
+    <h1 class="text-center mt-2" style="color: maroon;">USER DETAILS</h1>
+    <hr class="bg-dark">
+    {% for message in messages %}
+        <div class="h5 text-danger text-center mx-auto mt-2" style="max-width: 500px;">
+            {{ message }}
+        </div>
+    {% endfor %}
+    <div class="table-responsive mt-4">
+        <table class="table table-striped table-bordered table-light">
+        <thead class="bg-success text-light">
+            <tr class="text-center">
+                <th scope="col">Name</th>
+                <th scope="col">User type</th>
+                <th scope="col">Email address</th>
+                <th scope="col">ACTION</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr class="text-center">
+                <td scope="col">{{ user.first_name }}</td>
+                <td scope="col">
+                    {% if user.user_type == '2' %} 
+                        Teacher
+                    {% elif user.user_type == '3' %}
+                        Student
+                    {% else %}
+                        Unknown
+                    {% endif %}
+                </td>
+                <td scope="col">{{ user.email }}</td>
+                <td scope="col">
+                    {% if user.status == 0 %}
+                        <a href="{% url 'approve' user.id %}" class="btn btn-info mb-2">APPROVE</a>
+                        <a href="{% url 'disapprove' user.id %}" class="btn btn-danger mb-2 ml-2">DISAPPROVE</a>
+                    {% elif user.status == 1 %}
+                        <button type="button" class="btn btn-info mb-2" disabled>APPROVED</a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+    </div>
+    
+</div>
+
+
+
+{% endblock %}

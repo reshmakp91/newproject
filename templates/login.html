@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<style>
+    .image-section {
+        background-image: url("{% static 'images/login.jpg' %}"); 
+        background-size: cover; 
+        background-position: center; 
+        min-height: 500px;
+    }
+</style>
+
+<div class="container mx-auto my-5 rounded shadow" style="max-width: 750px; background-color: rgb(105, 230, 122);">
+    <div class="row">
+        <div class="image-section col-md-6 d-none d-md-block">
+        </div>
+        <div class="col-md-6 py-3 mt-5 py-2">
+            <h1 class="text-center text-dark p-2 mb-3">Login</h1>
+            <div class="container text-center mt-2">
+                {% for message in messages %}
+                <div class="text-danger h6 mx-auto" style="max-width: 400px;">
+                    {{message}}
+                </div>
+                {% endfor %}
+            </div>
+            <form class="p-2" action="{% url 'user_login' %}" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label class="form-label h6">Username : </label>
+                    <input type="text" class="form-control" name="username">
+                </div>
+                <div class="form-group">
+                    <label class="form-label h6">Password : </label>
+                    <input type="password" class="form-control" name="password">
+                </div>
+                <div class="row form-group">
+                    <button type="submit" class="btn btn-dark col-md-3 mx-auto">Login</button>
+                </div>
+                <div class="row">
+                    <p class="mx-auto col-md-7 text-center">New User? <a href="" class="text-muted+">Register here</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'student_base.html' %}
+{% block content %}
+
+<div class="container-fluid">
+    {% for message in messages %}
+        <div class="h5 alert alert-success text-center mx-auto" style=" max-width: 500px;">
+            {{ message }}
+        </div>
+    {% endfor %}
+    <div class="row mb-4">
+        <div class="col-md-2">
+            <img src="{{ student.Image.url }}"  class="rounded-circle mb-3 border" style="width: 250px; height: 250px; object-fit: cover;">
+        </div>
+        <div class="col-md-10 mt-4">
+            <h1 class="font-weight-bold ml-md-5 pl-md-3 display-4">Welcome, {{ student.user.first_name }}</h1>
+            <p class="lead text-muted ml-md-5 pl-md-3 mt-3">This is your learning dashboard at Focus Academy. Here, you can access your enrolled courses, view progress, and explore new topics.</p>
+            <p class="lead text-muted ml-md-5 pl-md-3 mt-3">Stay motivated and keep learning — every lesson brings you one step closer to your goals.</p>            
+        </div>
+    </div>
+    <div class="row mb-4 p-3 mx-auto">
+        <div class="card shadow-sm border-left-info w-100 p-3">
+            <div class="card-body">
+                <h4 class="card-title text-info">
+                    <i class="fas fa-lightbulb mr-2"></i>Words to Motivate Your Learning
+                </h4>
+                <blockquote class="blockquote mt-4 pl-3 border-left border-info" style="font-size: 18px;">
+                    <p class="mb-0" style="font-size: 20px;">"Education is the most powerful weapon which you can use to change the world."</p>
+                    <footer class="blockquote-footer mt-2">Nelson Mandela</footer>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+    
+    <p class="lead text-muted text-center font-weight-bold mb-5" style="font-size: 32px;">
+        "Keep striving — your future is being written one chapter at a time!"
+    </p>
+</div>
+
+{% endblock %}

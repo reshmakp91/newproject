@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    .home {
+        background-image: url("{% static 'images/home.jpg' %}");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        color: white;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+        z-index: 1;
+    }
+
+    .content {
+        z-index: 2;
+    }
+</style>
+
+<div class="home">
+    <div class="overlay"></div>
+    <div class="container content">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-md-left text-center">
+                <div class="container text-center">
+                    {% for message in messages %}
+                    <div class="alert alert-warning h5 mx-auto" style="max-width: 500px;">
+                        {{message}}
+                    </div>
+                    {% endfor %}
+                </div>
+                <h1 class="display-3">Welcome to<br>Focus Academy</h1>
+                <p class="lead mb-4">
+                    Looking for extra support in school subjects or want to learn new skills?
+                    We offer Kerala State Board & CBSE tuition, Spoken English classes to boost your confidence, 
+                    and beginner-friendly coding classes to spark your tech journey!
+                </p>
+                <a href="" class="btn btn-primary btn-lg mb-4">Start Learning</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

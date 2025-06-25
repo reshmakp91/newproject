@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus Academy</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    {% load static %}
+   
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark py-1" style="background-color: #381c57;">
+        <img src="{% static 'images/logo.png' %}" style="width: 40px; height: 40px;" class="mr-1">
+        <a class="navbar-brand h1" href="" style="font-size: 28px;">Focus Academy</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link text-light" href="{% url 'home' %}" style="font-size: 18px;">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="{% url 'logout' %}" style="font-size: 18px;">logout</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid sidebar">
+        <div class="row">
+            <nav class="col-md-2 pt-4" style=" min-height: 100vh; background-color: #eee9f5;">
+                <ul class="nav ml-2 flex-column" style="font-size: 18px;">
+                    <li class="nav-item py-2"><a class="nav-link text-dark d-flex align-items-center" href="{% url 'resetpage' %}"><i class="fa-solid fa-power-off mr-3"></i>Reset password</a></li>
+                </ul>
+            </nav>
+            <main class="col-md-10 ml-sm-auto px-4 py-4">
+                {% block content %}
+                {% endblock %}
+            </main>
+        </div>
+    </div>
+    <footer class="text-center p-2 text-light bg-dark">2025 Focus Acadamy Teacher</footer>
+</body>
+</html>

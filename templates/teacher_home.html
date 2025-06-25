@@ -1,0 +1,40 @@
+{% extends 'teacher_base.html' %}
+{% block content %}
+
+<div class="container-fluid">
+    {% for message in messages %}
+        <div class="h5 alert alert-success text-center mx-auto" style=" max-width: 500px;">
+            {{ message }}
+        </div>
+    {% endfor %}
+    <div class="row mb-4">
+        <div class="col-md-2">
+            <img src="{{ teacher.Image.url }}"  class="rounded-circle mb-3 border" style="width: 250px; height: 250px; object-fit: cover;">
+        </div>
+        <div class="col-md-10 mt-4">
+            <h1 class="font-weight-bold ml-md-5 pl-md-3 display-4">Welcome, {{ teacher.user.first_name }}</h1>
+            <p class="lead text-muted ml-md-5 pl-md-3 mt-3">Here's a quick overview of your profile and the tools that support your teaching journey at Focus Academy.</p>
+            <p class="lead text-muted ml-md-5 pl-md-3 mt-3">Use this space to manage your courses, connect with students & monitor student progress.</p>
+            
+        </div>
+    </div>
+    <div class="row mb-4 p-3 mx-auto">
+        <div class="card shadow-sm border-left-info w-100 p-3">
+            <div class="card-body">
+                <h4 class="card-title text-info">
+                    <i class="fas fa-lightbulb mr-2"></i>Words to Inspire Your Teaching Journey
+                </h4>
+                <blockquote class="blockquote mt-4 pl-3 border-left border-info" style="font-size: 18px;">
+                    <p class="mb-0" style="font-size: 20px;">"The mediocre teacher tells. The good teacher explains. The superior teacher demonstrates. The great teacher inspires."</p>
+                    <footer class="blockquote-footer mt-2">William Arthur Ward</footer>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+    
+    <p class="lead text-muted text-center font-weight-bold mb-5" style="font-size: 32px;">
+        "Keep up the amazing work — your influence shapes the future!"
+    </p>
+</div>
+
+{% endblock %}
